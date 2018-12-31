@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <style>
+      rect.bordered {
+        stroke: #D3D3D3;
+        stroke-width:.5px;   
+      }
+
+      text.mono {
+        font-size: 9pt;
+        font-family: Consolas, courier;
+        fill: #aaa;
+      }
+
+      text.axis-workweek {
+        fill: #000;
+      }
+
+      text.axis-worktime {
+        fill: #000;
+      }
+    </style>
+    <script src="http://d3js.org/d3.v3.js"></script>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <div id="dataset-picker">
+    </div>
+    <script type="text/javascript">
+      var margin = { top: 50, right: 0, bottom: 100, left: 100 },
+          width = 1100 - margin.left - margin.right,
+          height = 1550 - margin.top - margin.bottom,
+          gridSize = Math.floor(width / 40),
+          legendElementWidth = gridSize*3,
+          buckets = 6,
+          //colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"], // alternatively colorbrewer.YlGnBu[9]
+          //colors = ["#F2F2F9","#B8C5DD","#89B6C1","#5DA392","#3B8253",'26601F','273F0B','202103'],
+          //colors = [colorbrewer.YlGnBu[9]]
+
+		 // colors=['#F2F2F9','#D7DBEF','#B8C5DD','#A1BBCE','#89B6C1','#70B2B1','#5DA392','#4D9172','#3B8253','#2B7033','#26601F','#275114','#273F0B','#263008','#202103','#0F0C00'],
+		  //colors=['#ffffff','#fee5d9','#fcae91','#fb6a4a','#de2d26'],
+		  //colors=['#ffffff','#fee5d9','#fcae91','#fb6a4a','#de2d26','#a50f15'],
+      colors=['#ffffff','#FDF2F8','#EAB7D3','#D686B3','#BF5792','#9E3771'],
+          //days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+          days=['FASS-AS1-01', 'FASS-AS1-02', 'FASS-AS1-03', 'FASS-AS1-04', 'FASS-AS1-05', 'FASS-AS2-02', 'FASS-AS2-03', 'FASS-AS2-04', 'FASS-AS2-05', 'FASS-AS2-06', 'FASS-AS3-01', 'FASS-AS3-02', 'FASS-AS3-03', 'FASS-AS3-04', 'FASS-AS3-05','FASS-AS3-06', 'FASS-AS4-01', 'FASS-AS4-02', 'FASS-AS4-03', 'FASS-AS4-04', 'FASS-AS4-05', 'FASS-AS4-06', 'FASS-AS4-B1', 'FASS-AS5-02', 'FASS-AS5-03', 'FASS-AS5-04', 'FASS-AS5-05', 'FASS-AS5-06', 'FASS-AS6-01', 'FASS-AS6-02', 'FASS-AS6-03', 'FASS-AS7-01', 'FASS-AS7-02', 'FASS-AS7-03', 'FASS-AS7-04', 'FASS-AS7-05', 'FASS-AS7-06', 'FASS-Canteen-02', 'FASS-LT10', 'FASS-LT11', 'FASS-LT12', 'FASS-LT13', 'FASS-LT14', 'FASS-LT15', 'FASS-LT8', 'FASS-LT9', 'FASS-Ventus-01','FASS-Ventus-02', 'FASS-Ventus-03','FASS-Ventus-B1', 'CCELIB-CL-01', 'CCELIB-CL-03', 'CCELIB-CL-04', 'CCELIB-CL-05', 'CCELIB-CL-06'];
+          //days=['FASS-AS1-01', 'FASS-AS1-02', 'FASS-AS1-03', 'FASS-AS1-04', 'FASS-AS1-05', 'FASS-AS2-02', 'FASS-AS2-03', 'FASS-AS2-04', 'FASS-AS2-05'],
+          times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12a"];
+          //datasets = ["fass-semester-student-overall-10MIN.tsv","fass-holiday-student-overall-10MIN.tsv"];
+          //datasets = ["data_fass.tsv","fass-holiday-student-overall-10MIN.tsv"];
+          datasets = ["2018_week36_staff_hourly.tsv","2018_week39_staff_hourly.tsv","2018_week47_staff_hourly.tsv","2018_week48_staff_hourly.tsv","2018_week50_staff_hourly.tsv"];
+
+      var svg = d3.select("#chart").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      var dayLabels = svg.selectAll(".dayLabel")
+          .data(days)
+          .enter().append("text")
+            .text(function (d) { return d; })
+            .attr("x", 0)
+            .attr("y", function (d, i) { return i * gridSize; })
+            .style("text-anchor", "end")
+            .attr("transform", "translate(-0.99" + gridSize  + ",15)")
+            .attr("class", function (d, i) { return ((i >= 0) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
+
+      var timeLabels = svg.selectAll(".timeLabel")
+          .data(times)
+          .enter().append("text")
+            .text(function(d) { return d; })
+            .attr("x", function(d, i) { return i * gridSize; })
+            .attr("y", 0)
+            .style("text-anchor", "middle")
+            .attr("transform", "translate(0" + gridSize + ", -6)")
+            .attr("class", function(d, i) { return ((i >= 0) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+
+      var heatmapChart = function(tsvFile) {
+        d3.tsv(tsvFile,
+        function(d) {
+          return {
+            day: +d.day,
+            hour: +d.hour,
+            value: +d.value
+          };
+        },
+        function(error, data) {
+          var colorScale = d3.scale.linear()
+              //.domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
+              .domain([5,10,20,50,100])
+              //.domain([5,10,20,30,40])
+              //.domain([buckets - 1,])
+              .range(colors);
+
+          var cards = svg.selectAll(".hour")
+              .data(data, function(d) {return d.day+':'+d.hour;});
+
+          cards.append("title");
+
+          cards.enter().append("rect")
+              .attr("x", function(d) { return (d.hour - 1) * gridSize; })
+              .attr("y", function(d) { return (d.day - 1) * gridSize; })
+              //.attr("y", 24)
+              //.attr("y", 52)
+
+              //.attr("ry", 4)
+              .attr("class", "hour bordered")
+              .attr("width", gridSize)
+              .attr("height", gridSize)
+              .style("fill", colors[0]);
+
+          cards.transition().duration(1000)
+              .style("fill", function(d) { return colorScale(d.value); });
+
+          cards.select("title").text(function(d) { return d.value; });
+          
+          cards.exit().remove();
+
+          var legend = svg.selectAll(".legend")
+              //.data([0].concat(colorScale.quantiles()), function(d) { return d; });
+              .data([0].concat(colorScale.domain()))
+
+          legend.enter().append("g")
+              .attr("class", "legend");
+
+          legend.append("rect")
+            .attr("x", function(d, i) { return legendElementWidth * i; })
+            .attr("y", height)
+            .attr("width", legendElementWidth)
+            .attr("height", gridSize)
+            .style("fill", function(d, i) { return colors[i]; });
+
+          legend.append("text")
+            .attr("class", "mono")
+            .text(function(d) { return "≥ " + Math.round(d); })
+            .attr("x", function(d, i) { return legendElementWidth * i; })
+            .attr("y", height + gridSize);
+
+          legend.exit().remove();
+
+        });  
+      };
+
+      heatmapChart(datasets[0]);
+      
+      var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
+        .data(datasets);
+
+      datasetpicker.enter()
+        .append("input")
+        .attr("value", function(d){ return "Dataset " + d })
+        .attr("type", "button")
+        .attr("class", "dataset-button")
+        .on("click", function(d) {
+          heatmapChart(d);
+        });
+    </script>
+  </body>
+</html>
