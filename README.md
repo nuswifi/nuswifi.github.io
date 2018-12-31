@@ -9,8 +9,8 @@ GitHub Repository for the NUS Wi-Fi project
 
 # Campus Phenology
 
-
-
+Student: https://nuswifi.github.io/index_student.html
+Staff: https://nuswifi.github.io/index_staff.html
 
 
 # Travel Behaviour
