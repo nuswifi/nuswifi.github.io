@@ -7,10 +7,13 @@ GitHub Repository for the NUS Wi-Fi project
 
 
 
-# Campus Phenology
+# Urban Phenology
 
-Student: https://nuswifi.github.io/index_student.html
-Staff: https://nuswifi.github.io/index_staff.html
+Interactive heatmaps are available using the d3.js platform developed by _________.
+
+Student: https://nuswifi.github.io/heatmap/index_student.html
+
+Staff: https://nuswifi.github.io/heatmap/index_staff.html
 
 
 # Travel Behaviour
