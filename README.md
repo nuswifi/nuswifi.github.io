@@ -4,11 +4,13 @@ GitHub Repository for the NUS Wi-Fi project
 # Introduction
 This GitHub Repository stores the interactive JavaScript, HTML and CSS elements used for the GE4401 Honours Thesis "Inferring Semantic Trajectories from Wi-Fi Tracking Data to analyse Urban Phenology and Travel Behaviour".
 
+CTRL-click each link to open each link in a new tab.
+
 # Data Availability Plot
 
 FASS: https://nuswifi.github.io/avail_plot/FASS.htm
 
-Full campus: https://nuswifi.github.io/avail_plot/full_plot.htm
+Whole campus: https://nuswifi.github.io/avail_plot/full_plot.htm
 
 # Urban Phenology
 
@@ -17,7 +19,7 @@ Interactive heatmaps are adapted from the calendar heatmap by Tom May (http://bl
 To access them, first scroll to the bottom and select a week.
 Hover over each cell to see the crowd counts for that hour in that location.
 
-Student: [go]https://nuswifi.github.io/heatmap/index_student.html{:target="_blank"}
+Student: https://nuswifi.github.io/heatmap/index_student.html
 
 Staff: https://nuswifi.github.io/heatmap/index_staff.html
 
