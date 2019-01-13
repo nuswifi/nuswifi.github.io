@@ -4,7 +4,11 @@ GitHub Repository for the NUS Wi-Fi project
 # Introduction
 
 
+# Data Availability Plot
 
+FASS:
+
+Full campus: https://nuswifi.github.io/avail_plot/full_plot.htm
 
 
 # Urban Phenology
