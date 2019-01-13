@@ -6,6 +6,8 @@ This GitHub Repository stores the interactive JavaScript, HTML and CSS elements 
 
 CTRL-click each link to open each link in a new tab.
 
+Source for Wi-Fi Data: NUS DataCommons (www.datacommons.nus.edu.sg)
+
 # Data Availability Plot
 
 FASS: https://nuswifi.github.io/avail_plot/FASS.htm
