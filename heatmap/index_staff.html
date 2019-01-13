@@ -2,6 +2,7 @@
 <meta charset="utf-8">
 <html>
   <head>
+    <title>Urban Phenology for Staff</title>
     <style>
       rect.bordered {
         stroke: #D3D3D3;
@@ -23,11 +24,34 @@
       }
     </style>
     <script src="https://d3js.org/d3.v3.js"></script>
+        <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Visavail.js style -->
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <link href='visavail/css/visavail.css' rel='stylesheet' type='text/css'>
+
+    <!-- font-awesome -->
+    <script src="https://use.fontawesome.com/8321cacbf6.js"></script>
   </head>
   <body>
-    <div id="chart"></div>
-    <div id="dataset-picker">
+    <div class="container">
+    <div class="page-header">
+        <h1>Urban Phenology for staff in the Faculty of Arts & Social Sciences</h1>
+        <p>This visualisation shows the calendar heatmap for staff for week 4, recess week, reading week, examination week and the first week of vacation for AY 2018/2019 Semester 1.<br>
+
+          Click <a href="index_student.html" target="_blank">here</a> to see the urban phenology for students.<br><br>
+          Adapted from Tom May's <a href="http://bl.ocks.org/tjdecke/5558084" target="_blank">Day/Hour Heatmap</a>.
+
+        </p>
+        <div class="alert alert-info" role="alert">1. First, click on one of the buttons below to reveal the crowd pattern for that week!<br>
+
+        2. Hover over each grid cell for a few seconds to see the number of staff at that hour in that location.</div>
     </div>
+    <div id="dataset-picker"></div>
+    <div id="chart"></div>
+    
+    
     <script type="text/javascript">
       var margin = { top: 50, right: 0, bottom: 100, left: 100 },
           width = 1100 - margin.left - margin.right,
@@ -49,7 +73,7 @@
           times = ["1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12p", "1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12a"];
           //datasets = ["fass-semester-student-overall-10MIN.tsv","fass-holiday-student-overall-10MIN.tsv"];
           //datasets = ["data_fass.tsv","fass-holiday-student-overall-10MIN.tsv"];
-          datasets = ["2018_week36_staff_hourly.tsv","2018_week39_staff_hourly.tsv","2018_week47_staff_hourly.tsv","2018_week48_staff_hourly.tsv","2018_week50_staff_hourly.tsv"];
+          datasets = ["Staff - Week 4.tsv","Staff - Recess week.tsv","Staff - Reading week.tsv","Staff - Exam week.tsv","Staff - Vacation week.tsv"];
 
       var svg = d3.select("#chart").append("svg")
           .attr("width", width + margin.left + margin.right)
@@ -150,7 +174,7 @@
 
       datasetpicker.enter()
         .append("input")
-        .attr("value", function(d){ return "Dataset " + d })
+        .attr("value", function(d){ return "" + d })
         .attr("type", "button")
         .attr("class", "dataset-button")
         .on("click", function(d) {

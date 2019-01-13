@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <title>Sankey Diagram for Students</title>
+    <style>
+      rect.bordered {
+        stroke: #D3D3D3;
+        stroke-width:.5px;   
+      }
+
+      text.mono {
+        font-size: 9pt;
+        font-family: Consolas, courier;
+        fill: #aaa;
+      }
+
+      text.axis-workweek {
+        fill: #000;
+      }
+
+      text.axis-worktime {
+        fill: #000;
+      }
+    </style>
+    <script src="https://d3js.org/d3.v3.js"></script>
+        <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Visavail.js style -->
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <link href='visavail/css/visavail.css' rel='stylesheet' type='text/css'>
+
+    <!-- font-awesome -->
+    <script src="https://use.fontawesome.com/8321cacbf6.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    <div class="page-header">
+        <h1>Sankey diagram for students flows </h1>
+        <p>This visualisation shows the sankey diagrams of students journeys for week 4, recess week, reading week, examination week and the first week of vacation for AY 2018/2019 Semester 1.<br>
+
+          Click <a href="staff_sankey.html" target="_blank">here</a> to see the sankey diagram for staff.<br><br>
+
+          Created using <a href="http://sankeymatic.com" target="_blank">SankeyMATIC</a> by Steve Bogart.
+          <br>
+
+        </p>
+        <div class="alert alert-info" role="alert">Hover over each flow for a few seconds to see the number of flows between each origin flow and destination flow.<br>
+
+        The flows are symbolised according to the following:<br>
+      <img src="legend.jpeg" width="20%"></div>
+
+    <table style="width:100%">
+      <tr>
+        <td>
+          <h2>Week 4</h2>
+          <object data="student_week36.svg" type=""></object>
+        </td>
+        <td>
+          <h2>Recess week</h2>
+          <object data="student_week39.svg" type=""></object>
+        </td> 
+      </tr>
+        <td>
+          <h2>Reading week</h2>
+          <object data="student_week47.svg" type=""></object>
+        </td>
+        <td>
+          <h2>Examination week</h2>
+          <object data="student_week48.svg" type=""></object>
+        </td> 
+      </tr>
+      </tr>
+        <td>
+          <h2>Vacation week</h2>
+          <object data="student_week50.svg" type=""></object>
+        </td>
+        <td>
+        </td> 
+      </tr>
+    </table>
+
+
+
+    
+
+    
+
+    
+
+    </div>
+  </body>
+</html>
