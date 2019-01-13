@@ -32,6 +32,6 @@ Student: https://nuswifi.github.io/sankey/student_sankey.html
 
 Staff: https://nuswifi.github.io/sankey/staff_sankey.html
 
-######Created for GE4401 Honours Thesis
+###### Created for GE4401 Honours Thesis
 
 
