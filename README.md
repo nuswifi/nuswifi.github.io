@@ -27,20 +27,20 @@ Staff: https://nuswifi.github.io/heatmap/index_staff.html
 Sankey diagrams are adapted from SankeyMATIC, created by Steve Bogart (http://sankeymatic.com/).
 
 Hover over each flow to see the crowd numbers for that journey. 
-<pre>
-Student (Week 36): https://nuswifi.github.io/sankey/student_week36.svg
-Student (Week 39): https://nuswifi.github.io/sankey/student_week39.svg
-Student (Week 47): https://nuswifi.github.io/sankey/student_week47.svg
-Student (Week 48): https://nuswifi.github.io/sankey/student_week48.svg
-Student (Week 50): https://nuswifi.github.io/sankey/student_week50.svg
+
+Student (Week 36): https://nuswifi.github.io/sankey/student_week36.svg<br/>
+Student (Week 39): https://nuswifi.github.io/sankey/student_week39.svg<br/>
+Student (Week 47): https://nuswifi.github.io/sankey/student_week47.svg<br/>
+Student (Week 48): https://nuswifi.github.io/sankey/student_week48.svg<br/>
+Student (Week 50): https://nuswifi.github.io/sankey/student_week50.svg<br/>
 
 
-Staff (Week 36): https://nuswifi.github.io/sankey/staff_week36.svg
-Staff (Week 39): https://nuswifi.github.io/sankey/staff_week39.svg
-Staff (Week 47): https://nuswifi.github.io/sankey/staff_week47.svg
-Staff (Week 48): https://nuswifi.github.io/sankey/staff_week48.svg
-Staff (Week 50): https://nuswifi.github.io/sankey/staff_week50.svg
-</pre>
+Staff (Week 36): https://nuswifi.github.io/sankey/staff_week36.svg<br/>
+Staff (Week 39): https://nuswifi.github.io/sankey/staff_week39.svg<br/>
+Staff (Week 47): https://nuswifi.github.io/sankey/staff_week47.svg<br/>
+Staff (Week 48): https://nuswifi.github.io/sankey/staff_week48.svg<br/>
+Staff (Week 50): https://nuswifi.github.io/sankey/staff_week50.svg<br/>
+
 
 Created for GE4401 Honours Thesis
 
