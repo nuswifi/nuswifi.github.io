@@ -2,7 +2,7 @@
 GitHub Repository for the NUS Wi-Fi project 
 
 # Introduction
-This GitHub Repository stores the interactive JavaScript, HTML and CSS elements used for the GE4401 Honours Thesis "Inferring Semantic Trajectories from Wi-Fi Tracking Data to analyse Urban Phenology and Travel Behaviour".
+This GitHub Repository stores the interactive JavaScript, HTML and CSS elements used for the GE4401 Honours Thesis "*Inferring Semantic Trajectories from Wi-Fi Tracking Data to analyse Urban Phenology and Travel Behaviour*".
 
 CTRL-click each link to open each link in a new tab.
 
