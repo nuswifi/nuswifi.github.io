@@ -25,6 +25,6 @@ Staff: https://nuswifi.github.io/heatmap/index_staff.html
 
 
 
-Created for GE4401 Honours Thesis (matric no A0139122N)
+Created for GE4401 Honours Thesis
 
 
