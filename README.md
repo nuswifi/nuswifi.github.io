@@ -18,7 +18,6 @@ Whole campus: https://nuswifi.github.io/avail_plot/full_plot.htm
 
 Interactive heatmaps are adapted from the calendar heatmap by Tom May (http://bl.ocks.org/tjdecke/5558084). 
 
-To access them, first scroll to the bottom and select a week.
 Hover over each cell to see the crowd counts for that hour in that location.
 
 Student: https://nuswifi.github.io/heatmap/index_student.html
