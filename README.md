@@ -10,6 +10,8 @@ Source for Wi-Fi Data: NUS DataCommons (https://datacommons.nus.edu.sg)
 
 # Data Availability Plot
 
+Created using Visavail.js by Florian Roscheck.
+
 Faculty of Arts and Social Sciences: https://nuswifi.github.io/avail_plot/FASS.htm
 
 Whole campus: https://nuswifi.github.io/avail_plot/full_plot.htm
